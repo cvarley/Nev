@@ -3,4 +3,4 @@
 .vscode/
 **/model.onnx.data
 /Nev.Console/
-*.md
+**/release-note-next-draft.md
