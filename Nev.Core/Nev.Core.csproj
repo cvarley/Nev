@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Version>0.9.0-beta</Version>
+    <PackageId>Nev.Core</PackageId>
+    <Title>Nev.Core</Title>
+    <Authors>Chris Varley</Authors>
+    <Copyright>Copyright (c) 2026 Chris Varley</Copyright>
+    <Description>Nev is a .NET library for fast, structured decision support. You can use it for tasks such as sentiment analysis, request routing, risk scoring, and customer-support triage.
+      It lets .NET applications turn text and structured input into typed decisions instead of free-form generated text.
+      You can define an input state and one or more questions, then evaluate them together to receive values, probabilities, and scores that can be used directly in application logic. 
+      Nev runs locally and requires no Python runtime or hosted AI service to work.
+  </Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://nev-ai.com/</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>See https://github.com/cvarley/Nev/releases for release notes.</PackageReleaseNotes>
+    <PackageTags>AI;decision-support;machine-learning;classification;NLP;Jev;Laya;system-one;system-1;model</PackageTags>
+    <RepositoryUrl>https://github.com/cvarley/Nev</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <ItemGroup> 
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.31.1" />
+    <PackageReference Include="Microsoft.ML.Tokenizers" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="BuildTransitive\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Nev.Test" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Model\**\*" />
+    <None Include="Model\**\*" Exclude="Model\**\*.data"
+          Pack="true"
+          PackagePath="contentFiles/any/any/Model/%(RecursiveDir)%(Filename)%(Extension)"
+          PackageCopyToOutput="false" />
+    <Content Remove="Model\**\*.data" />
+    <None Remove="BuildTransitive\Nev.Core.targets" />
+    <None Include="BuildTransitive\Nev.Core.targets"
+          Pack="true"
+          PackagePath="buildTransitive/Nev.Core.targets" />
+  </ItemGroup>
+
+</Project>

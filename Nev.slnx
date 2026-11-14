@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Nev.Test/Nev.Test.csproj" />
+  <Project Path="Nev.Core/Nev.Core.csproj" />
+</Solution>

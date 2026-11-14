@@ -1,0 +1,68 @@
+<Project>
+  <PropertyGroup>
+    <NevModelContentRoot Condition="'$(NevModelContentRoot)' == ''">$(MSBuildThisFileDirectory)../contentFiles/any/any/Model/</NevModelContentRoot>
+    <NevEnglishModelUrl Condition="'$(NevEnglishModelUrl)' == ''">https://cdn.nev-ai.com/models/int8-quant/english/model.onnx.data</NevEnglishModelUrl>
+    <NevEnglishModelSha256 Condition="'$(NevEnglishModelSha256)' == ''">F9F39391A712A7569AF6EA4FAD6B6F67FBC52B12E9F3987C2CE9444BF25929DE</NevEnglishModelSha256>
+  </PropertyGroup>
+
+  <Target Name="NevEnsureModelAssets">
+    <Error Condition="!Exists('$(NevModelContentRoot)')"
+           Text="Nev model assets were not found at '$(NevModelContentRoot)'. Ensure the Nev.Core package contains its Model content files." />
+
+    <ItemGroup>
+      <_NevModelFile Include="$(NevModelContentRoot)**/*" />
+    </ItemGroup>
+
+    <MakeDir Directories="$(TargetDir)Model/English" />
+    <Copy SourceFiles="@(_NevModelFile)"
+          DestinationFiles="@(_NevModelFile->'$(TargetDir)Model/%(RecursiveDir)%(Filename)%(Extension)')"
+          SkipUnchangedFiles="true" />
+
+    <Error Condition="!Exists('$(TargetDir)Model/English/model.onnx.data') and !$([System.String]::Copy('$(NevEnglishModelUrl)').StartsWith('https://'))"
+           Text="NevEnglishModelUrl must use HTTPS when downloading the English model data." />
+    <DownloadFile SourceUrl="$(NevEnglishModelUrl)"
+                  DestinationFolder="$(TargetDir)Model/English"
+                  DestinationFileName="model.onnx.data.download"
+          Condition="!Exists('$(TargetDir)Model/English/model.onnx.data')" />
+
+    <GetFileHash Files="$(TargetDir)Model/English/model.onnx.data.download"
+                 Algorithm="SHA256"
+                 HashEncoding="hex"
+                 Condition="Exists('$(TargetDir)Model/English/model.onnx.data.download')">
+      <Output TaskParameter="Items" ItemName="_NevEnglishDownloadHash" />
+    </GetFileHash>
+    <Error Condition="'@(_NevEnglishDownloadHash)' != '' and '%(_NevEnglishDownloadHash.FileHash)' != '$(NevEnglishModelSha256)'"
+           Text="The downloaded English model data failed SHA-256 validation. Check NevEnglishModelUrl and NevEnglishModelSha256." />
+    <Move SourceFiles="$(TargetDir)Model/English/model.onnx.data.download"
+          DestinationFiles="$(TargetDir)Model/English/model.onnx.data"
+          Condition="Exists('$(TargetDir)Model/English/model.onnx.data.download')" />
+
+        <GetFileHash Files="$(TargetDir)Model/English/model.onnx.data"
+                 Algorithm="SHA256"
+                 HashEncoding="hex">
+      <Output TaskParameter="Items" ItemName="_NevEnglishModelHash" />
+    </GetFileHash>
+    <Error Condition="'%(_NevEnglishModelHash.FileHash)' != '$(NevEnglishModelSha256)'"
+           Text="The English model data in the output directory failed SHA-256 validation. Replace it with the expected model or update NevEnglishModelSha256." />
+
+    <OnError ExecuteTargets="NevCleanupModelDownload" />
+  </Target>
+
+  <Target Name="NevPrepareModelAssetsForBuild" BeforeTargets="Build" DependsOnTargets="NevEnsureModelAssets" />
+
+  <Target Name="NevPrepareModelAssetsForPublish" BeforeTargets="ComputeFilesToPublish" DependsOnTargets="NevEnsureModelAssets">
+    <MakeDir Directories="$(PublishDir)Model/English" />
+    <Copy SourceFiles="@(_NevModelFile)"
+          DestinationFiles="@(_NevModelFile->'$(PublishDir)Model/%(RecursiveDir)%(Filename)%(Extension)')"
+          SkipUnchangedFiles="true"
+          Condition="'$(PublishDir)' != '' and '$(PublishDir)' != '$(TargetDir)'" />
+    <Copy SourceFiles="$(TargetDir)Model/English/model.onnx.data"
+          DestinationFiles="$(PublishDir)Model/English/model.onnx.data"
+          SkipUnchangedFiles="true"
+          Condition="'$(PublishDir)' != '' and '$(PublishDir)' != '$(TargetDir)'" />
+  </Target>
+
+  <Target Name="NevCleanupModelDownload">
+    <Delete Files="$(TargetDir)Model/English/model.onnx.data.download" />
+  </Target>
+</Project>

@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <NevModelContentRoot Condition="'$(NevModelContentRoot)' == ''">$(MSBuildThisFileDirectory)Nev.Core/Model/</NevModelContentRoot>
+  </PropertyGroup>
+
+  <Import Project="$(MSBuildThisFileDirectory)Nev.Core/BuildTransitive/Nev.Core.targets" />
+</Project>
