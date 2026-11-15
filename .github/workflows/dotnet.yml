@@ -26,5 +26,26 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
+    - name: Diagnose ONNX model files
+      if: always()
+      run: |
+        for path in \
+          "Nev.Core/Model/English/model.onnx" \
+          "Nev.Test/bin/Release/net10.0/Model/English/model.onnx"; do
+          echo "::group::$path"
+          if [ -f "$path" ]; then
+            stat --printf='size=%s bytes\n' "$path"
+            sha256sum "$path"
+            file "$path"
+            printf 'first 32 bytes (hex):'
+            od -An -tx1 -N32 "$path"
+            if head -c 100 "$path" | grep -aq '^version https://git-lfs.github.com/spec/v1'; then
+              echo 'Git LFS pointer detected instead of model data'
+            fi
+          else
+            echo 'File is missing'
+          fi
+          echo '::endgroup::'
+        done
     - name: Test
       run: dotnet test --configuration Release --no-build --verbosity normal --filter "Category!=Integration"
