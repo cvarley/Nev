@@ -1,20 +1,11 @@
-# Nev - Fast A.I. decision support for .NET
+# Nev - A decision support engine for .NET
 
-Nev is a free, open source AI library for .NET and C# developers that makes fast, structured decisions instead of generating text.
+[![MIT license](Nev.Core/Docs/license-mit-blue.svg)](https://github.com/cvarley/Nev/blob/master/LICENCE.md) 
+[![dotnet](Nev.Core/Docs/made-for-dotnet-green.svg)](https://dotnet.microsoft.com/) 
 
-You can use it for tasks such as risk scoring, customer support, email triage and many more. Read the [full documentation](Docs/index.md) for details.
+Fast decision inference in .NET/C# inspired by the [Jev AI model](https://en.wikipedia.org/wiki/Jev_(AI_model)). Read the [full documentation](Nev.Core/Docs/index.md) for details.
 
-It's named after the [Jev](https://en.wikipedia.org/wiki/Jev_(AI_model)) AI Model ... which is named after... [Jevons Paradox](https://en.wikipedia.org/wiki/Jevons_paradox)... which is named after... [William Jevons](https://en.wikipedia.org/wiki/William_Stanley_Jevons)
-
-But it's *not* `Jev`... 
-
-It's `Nev`!
-
-**(n. proper noun)* [blend of Not and Jev].
-
-## Quick Start
-
-### Install Nev
+## Install Nev
 
 Before you start, you'll need the [Microsoft .NET 10 or newer SDK](https://dotnet.microsoft.com/en-us/download) and [Visual Studio Code](https://code.visualstudio.com/) installed. 
 
@@ -31,9 +22,9 @@ Before the build completes, Nev copies the model data file to your application's
 
 Refreshments at the ready! The default data file is **402 MB** and so may take some time to download on a slow connection. 
 
-*(N.B. This automatic download applies both when Nev is installed from NuGet and when building from source. Subsequent builds reuse the downloaded file. If you are having difficulty, you can [download the model data files](Docs/index.md#model-files) manually.)*
+> *(N.B. This automatic download applies both when Nev is installed from NuGet and when building from source. Subsequent builds reuse the downloaded file. If you are having difficulty, you can [download the model data files](Nev.Core/Docs/index.md#model-files) manually.)*
 
-### Example 1 - A Yes/No Probability ("Noul") question - Sentiment Analysis
+## Example 1 - A Yes/No Probability ("Noul") question - Sentiment Analysis
 
 This example uses a `Noul` question, which returns the probability that a yes/no statement is true, as well as a boolean value derived from that probability.
 
@@ -58,9 +49,9 @@ For example, the output might be:
 True: 96%
 ```
 
-*(N.B. The exact result will depend on the model's prediction.)*
+>*(N.B. The exact result will depend on the model's prediction.)*
 
-### Example 2 - A Choice question - Routing mail to the correct department.
+## Example 2 - A Choice question - Routing mail to the correct department.
 
 Another slightly more complex example is routing a customer email to a department. Provide:
 
@@ -96,8 +87,22 @@ For example, the selected department might be:
 ```output
 billing
 ```
-*(N.B. once again, the actual result will depend upon the model's prediction.)*
+>*(N.B. once again, the actual result will depend upon the model's prediction.)*
 
-You can read the [full documentation here](Docs/index.md).
+---
+## Notes
 
-Copyright © 2026 [Chris Varley](https://www.linkedin.com/in/chrisvarley). Nev is licenced under the terms of the [MIT Licence](LICENCE.md) 
+### Licensing and responsible use
+
+Nev is an independent, personal, open-source research project inspired by TypeSafe AI's Jev model. It is neither affiliated with, endorsed by, nor associated with TypeSafe AI. Nev has its own independently developed implementation and architecture.
+
+Nev is provided under the terms of the [MIT License](LICENCE.md). 
+The model files are distributed under the [Apache License 2.0](Model/LICENSE).
+
+### Responsible Use
+
+Please also read the [community code of conduct](code-of-conduct.md) and the [responsible use guidance](responsible-ai-use.md).
+
+### Contact
+
+Please send any thoughts, feedback or questions to [hello@nev-ai.com](mailto:hello@nev-ai.com).

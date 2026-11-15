@@ -1,6 +1,12 @@
+# Generated .NET build outputs.
 **/obj/
 **/bin/
-.vscode/
+
+# External data files stored in LFS.
 **/model.onnx.data
+
+# Local tooling files and draft release notes.
+# These can be removed if you do not use the associated tools.
+.vscode/
 /Nev.Console/
 **/release-note-next-draft.md

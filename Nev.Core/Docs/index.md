@@ -1,6 +1,8 @@
 # Nev.Core Documentation
 
-Welcome to the Nev documentation. This guide covers the public API and normal application workflow. 
+Welcome to the Nev documentation.
+
+This guide covers the public API and normal application workflow. To get started, you might prefer to start with the shorter [README](../../README.md) file which contains a quick introduction and a couple of examples.
 
 ## Contents
 
@@ -21,17 +23,22 @@ Welcome to the Nev documentation. This guide covers the public API and normal ap
 - [Licensing and responsible use](#licensing-and-responsible-use)
 - [Contact](#contact)
 
-For more information, see these resources:
+For further useful information, see here:
 
-- [Nev-AI.com](https://nev-ai.com/), the Nev project website.
-- The [project README](../README.md), with an introduction and quick start.
-- [Nev.Core on NuGet](https://www.nuget.org/packages/Nev.Core/).
-- [Examples and tests](../../Nev.Test/Examples/).
-- The [typed-decision model guide](typed-decision.md).
+- Nevs home on the web - [Nev-AI.com](https://www.nev-ai.com/).
+- Simple Installation via [NuGet](https://www.nuget.org/packages/Nev.Core/).
+- A comprehensive range of [Examples](../../Nev.Test/Examples/).
+- A guide to the more specialist [typed-decision model](typed-decision.md).
 
 ## What is Nev?
 
-Nev is a .NET library for structured decision inference. It evaluates an input (a **state**) against predefined questions and returns typed answers. It is designed for decisions such as classifying a request, assigning a category, or estimating a score, rather than generating free-form text.
+Nev is a free, open source decision inference engine for .NET / C# developers that makes fast, structured decisions instead of generating text.
+
+You can use it for tasks such as risk scoring, customer support, email triage and many more. It evaluates an input (a **state**) against predefined questions and returns typed answers. It is designed for decisions such as classifying a request, assigning a category, or estimating a score, rather than generating free-form text.
+
+It's named after the [Jev](https://en.wikipedia.org/wiki/Jev_(AI_model)) AI Model ... which is named after... [Jevons Paradox](https://en.wikipedia.org/wiki/Jevons_paradox)... which is named after... [William Jevons](https://en.wikipedia.org/wiki/William_Stanley_Jevons) But this is *not* `Jev`... 
+
+It's **`Nev`** **(n. proper noun)* [blend of Not and Jev].
 
 ## Why choose Nev?
 

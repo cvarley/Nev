@@ -7,15 +7,7 @@ Nev is a free, open source AI library for .NET and C# developers that makes fast
 
 You can use it for tasks such as risk scoring, customer support, email triage and many more. Read the [full documentation](Docs/index.md) for details.
 
-It's named after the [Jev](https://en.wikipedia.org/wiki/Jev_(AI_model)) AI Model ... which is named after... [Jevons Paradox](https://en.wikipedia.org/wiki/Jevons_paradox)... which is named after... [William Jevons](https://en.wikipedia.org/wiki/William_Stanley_Jevons)
-
-But this is *not* `Jev`... 
-
-It's `Nev`.
-
-**(n. proper noun)* [blend of Not and Jev].
-
-## Easy to Use
+## Example
 
 ```csharp
 using Nev.Core;
