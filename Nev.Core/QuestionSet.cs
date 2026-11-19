@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-
 using System.Collections;
 
 namespace Nev.Core;

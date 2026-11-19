@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-
 using Microsoft.ML.OnnxRuntime;
 
 namespace Nev.Core;

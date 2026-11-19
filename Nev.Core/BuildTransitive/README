@@ -1,7 +1,7 @@
 ---
 SPDX-License-Identifier: MIT
 ---
-# Nev - Fast A.I. decision support for .NET
+# Nev - A fast semantic decision engine for .NET
 
 Nev is a free, open source AI library for .NET and C# developers that makes fast, structured decisions instead of generating text.
 

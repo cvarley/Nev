@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-
 using Microsoft.ML.OnnxRuntime;
 using System.Collections.Concurrent;
 

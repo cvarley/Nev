@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-
 namespace Nev.Core;
 
 /// <summary>Identifies the kind of typed decision requested from the model.</summary>

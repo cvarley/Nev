@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-
 using System.Text;
 using System.Text.RegularExpressions;
 

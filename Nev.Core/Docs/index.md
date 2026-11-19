@@ -32,11 +32,11 @@ For further useful information, see here:
 
 ## What is Nev?
 
-Nev is a free, open source decision inference engine for .NET / C# developers that makes fast, structured decisions instead of generating text.
+Nev - [https://www.nev-ai.com](https://www.nev-ai.com) - is a free, open source semantic decision engine for .NET / C# developers that makes fast, structured decisions instead of generating text.
 
 You can use it for tasks such as risk scoring, customer support, email triage and many more. It evaluates an input (a **state**) against predefined questions and returns typed answers. It is designed for decisions such as classifying a request, assigning a category, or estimating a score, rather than generating free-form text.
 
-It's named after the [Jev](https://en.wikipedia.org/wiki/Jev_(AI_model)) AI Model ... which is named after... [Jevons Paradox](https://en.wikipedia.org/wiki/Jevons_paradox)... which is named after... [William Jevons](https://en.wikipedia.org/wiki/William_Stanley_Jevons) But this is *not* `Jev`... 
+It's named after the [Jev](https://en.wikipedia.org/wiki/Jev_(AI_model)) AI Model ... which is named after... [Jevons Paradox](https://en.wikipedia.org/wiki/Jevons_paradox)... But this is *not* `Jev`... 
 
 It's **`Nev`** **(n. proper noun)* [blend of Not and Jev].
 

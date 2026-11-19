@@ -1,11 +1,12 @@
-# Nev - A decision support engine for .NET
+# Nev - A semanitc decision engine for .NET
 
 [![MIT license](Nev.Core/Docs/license-mit-blue.svg)](https://github.com/cvarley/Nev/blob/master/LICENCE.md) 
 [![dotnet](Nev.Core/Docs/made-for-dotnet-green.svg)](https://dotnet.microsoft.com/) 
+[![.NET](https://github.com/cvarley/Nev/actions/workflows/dotnet.yml/badge.svg)](https://github.com/cvarley/Nev/actions/workflows/dotnet.yml)
 
-Fast decision inference in .NET/C# inspired by the [Jev AI model](https://en.wikipedia.org/wiki/Jev_(AI_model)). Read the [full documentation](Nev.Core/Docs/index.md) for details.
+Nev - [https://www.nev-ai.com](https://www.nev-ai.com) - is an open-source “semantic decision engine” for .NET that runs on a local CPU. It was inspired by the [Jev AI model](https://en.wikipedia.org/wiki/Jev_(AI_model)). Read the [full documentation](Nev.Core/Docs/index.md) for details.
 
-## Install Nev
+## Installing Nev
 
 Before you start, you'll need the [Microsoft .NET 10 or newer SDK](https://dotnet.microsoft.com/en-us/download) and [Visual Studio Code](https://code.visualstudio.com/) installed. 
 

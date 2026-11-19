@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-
 namespace Nev.Core;
 
 internal static class SequenceBuilder
