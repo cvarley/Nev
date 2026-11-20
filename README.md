@@ -1,6 +1,7 @@
 # Nev - A semantic decision engine for .NET
 
 [![MIT license](Nev.Core/Docs/license-mit-blue.svg)](https://github.com/cvarley/Nev/blob/master/LICENCE.md) 
+[![Made for .NET](Nev.Core\Docs\made-for-dotnet-green.svg)](Nev.Core\Docs\made-for-dotnet-green.svg) 
 [![.NET](https://github.com/cvarley/Nev/actions/workflows/dotnet.yml/badge.svg)](https://github.com/cvarley/Nev/actions/workflows/dotnet.yml)
 
 Nev - [https://www.nev-ai.com](https://www.nev-ai.com) - is an open-source “semantic decision engine” for .NET that runs on a local CPU. It was inspired by the [Jev AI model](https://en.wikipedia.org/wiki/Jev_(AI_model)). Read the [full documentation](Nev.Core/Docs/index.md) for details.
