@@ -98,7 +98,7 @@ billing
 Nev is an independent, personal, open-source research project inspired by TypeSafe AI's Jev model. It is neither affiliated with, endorsed by, nor associated with TypeSafe AI. Nev has its own independently developed implementation and architecture.
 
 Nev is provided under the terms of the [MIT License](LICENCE.md). 
-The model files are distributed under the [Apache License 2.0](Model/LICENSE).
+The model files are distributed under the [Apache License 2.0](Nev.Core/Model/LICENSE.md).
 
 ### Responsible Use
 

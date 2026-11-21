@@ -396,7 +396,7 @@ Source code is provided under the terms of the [MIT License](../LICENCE.md).
 
 Nev uses and adapts the open weights model [Laya](https://huggingface.co/convaiinnovations/laya), (Exported  commit [7b928d828b7b0e022f929d9bd2e44165aa270148](https://huggingface.co/convaiinnovations/laya/tree/7b928d828b7b0e022f929d9bd2e44165aa270148) -- parent --> [55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851](https://huggingface.co/convaiinnovations/laya/tree/55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851)) The snapshot was verified as safe by [PaloAlto Networks ProtectAI](https://insights-db.paloaltonetworks.com/models/convaiinnovations/laya/7b928d828b7b0e022f929d9bd2e44165aa270148/files?blob-id=9bef25a12dcb807627a798837cfbb0ea73c0e38d) at time of export.
 
-The model files are distributed under the [Apache License 2.0](../Model/LICENSE).
+The model files are distributed under the [Apache License 2.0](../Model/LICENSE.md).
 
 The models data have subsequently been converted to the [Open Neural Network Exchange Format \(ONNX\)](https://onnx.ai/) and weights have been quantized to 8-bit integers.The ONNX model exports used by Nev were generated using GitHub Copilot/OpenAI GPT-6. See: [AI Disclosure](ai-disclosure.md).
 

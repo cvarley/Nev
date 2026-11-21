@@ -5,7 +5,7 @@ SPDX-License-Identifier: MIT
 
 Nev is a free, open source AI library for .NET and C# developers that makes fast, structured decisions instead of generating text.
 
-You can use it for tasks such as risk scoring, customer support, email triage and many more. Read the [full documentation](Docs/index.md) for details.
+You can use it for tasks such as risk scoring, customer support, email triage and many more. Read the [full documentation](https://github.com/cvarley/Nev/blob/master/Nev.Core/Docs/index.md) for details.
 
 ## Example
 
