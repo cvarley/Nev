@@ -4,7 +4,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Version>0.9.0-beta</Version>
+    <Version>1.0.0</Version>
     <PackageId>Nev.Core</PackageId>
     <Title>Nev.Core</Title>
     <Authors>Chris Varley</Authors>
@@ -16,7 +16,7 @@
   </Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://nev-ai.com/</PackageProjectUrl>
+    <PackageProjectUrl>https://www.nev-ai.com/</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>See https://github.com/cvarley/Nev/releases for release notes.</PackageReleaseNotes>
     <PackageTags>AI;decision-support;machine-learning;classification;NLP;Jev;Laya;system-one;system-1;model</PackageTags>
@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="BuildTransitive\README.md" Pack="true" PackagePath="\" />
+    <None Update="BuildTransitive\README.md" Pack="true" PackagePath="README.md" />
   </ItemGroup>
 
   <ItemGroup>

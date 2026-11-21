@@ -9,4 +9,5 @@
 # These can be removed if you do not use the associated tools.
 .vscode/
 /Nev.Console/
+/Nev.BuildArtifacts/
 **/release-note-next-draft.md
