@@ -14,7 +14,7 @@ public sealed class DecisionModel : IDisposable
     private readonly bool _ownsSession;
     private readonly BpeTokenizer _tokenizer;
 
-    //Reserved Tokens
+    // Reserved tokenizer tokens resolved from the checkpoint configuration.
     private readonly IReadOnlyDictionary<string, int> _specialTokenIds;
     private readonly int _clsTokenId;
     private readonly int _sepTokenId;
@@ -59,16 +59,27 @@ public sealed class DecisionModel : IDisposable
             : new Dictionary<string, double>(StringComparer.Ordinal);
     }
 
+    /// <summary>Gets the input tensor metadata exposed by the loaded ONNX model.</summary>
     public IReadOnlyDictionary<string, NodeMetadata> InputMetadata => _session.InputMetadata;
 
+    /// <summary>Gets the output tensor metadata exposed by the loaded ONNX model.</summary>
     public IReadOnlyDictionary<string, NodeMetadata> OutputMetadata => _session.OutputMetadata;
 
+    /// <summary>
+    /// Encodes text with the checkpoint tokenizer, applying its required Unicode normalistion. (in this case "FormC")
+    /// </summary>
+    /// <param name="text">The text to encode.</param>
+    /// <returns>The encoded token IDs.</returns>
     public int[] EncodeAsTokenIDs(string text)
     {
         ArgumentNullException.ThrowIfNull(text);
         return _tokenizer.EncodeToIds(_normalizeNfc ? text.Normalize(NormalizationForm.FormC) : text).ToArray();
     }
 
+    /// <summary>
+    /// Runs the session directly with tensors prepared for this model.
+    /// </summary>
+    /// <remarks>The returned collection must be disposed by the caller.</remarks>
     public IDisposableReadOnlyCollection<DisposableNamedOnnxValue> Run(
         DenseTensor<long> inputIds,
         DenseTensor<long> attentionMask,
@@ -130,6 +141,7 @@ public sealed class DecisionModel : IDisposable
             }
         }
 
+        //run the model and get the results.
         using var outputs = Run(inputIds, attentionMask, markerPositions, markerMask, questionTypes);
         var logits = outputs.Single(output => output.Name == "logits").AsTensor<float>();
         var actionLogits = outputs.Single(output => output.Name == "act_logits").AsTensor<float>();
@@ -155,6 +167,7 @@ public sealed class DecisionModel : IDisposable
 
     public void Dispose()
     {
+        // Releases any passed in custom sessions. (Default sessions remain cached and are disposed on application shutdown).
         if (_ownsSession)
             _session.Dispose();
     }
@@ -207,6 +220,22 @@ public sealed class DecisionModel : IDisposable
 
         return (BpeTokenizer.Create(options), specialTokens, normalizerType == "NFC");
     }
+
+/* 
+    ResolveTemperature selects the calibrated scaling factor to use when converting model logits into probabilities.
+
+    It first looks for a checkpoint-specific override based on both:
+
+        Question type - i.e. Choice, Score, or Noul
+        Number of options - Grouped into 2, 3-5, 6-10, or 11+
+    Eg. if that calibration value exists in _temperaturesByOptions, it returns it. 
+    Otherwise, it uses _temperatures[(int)type], the general temperature for that question type.
+
+    Temperature control is important because logits can be either too confident or too uncertain. (but will behave differently for each checkpoint model)
+    The override allows each checkpoint to be calibrated differently for, say, a 2-option choice versus a 20-option choice.
+    _temperatures and _temperaturesByOptions are loaded from the checkpoint configuration (in rl_agent_config.json) in the constructor, 
+    ...where ClampTemperature() is used to limit these values to between 0.5 and 5.0.
+*/
 
     private double ResolveTemperature(QuestionType type, int optionCount)
     {
