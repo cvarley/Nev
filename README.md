@@ -1,32 +1,31 @@
-# Nev - A semantic decision engine for .NET
-
-
-[![NEV](Nev.Core/Docs/banner-md.jpg)](Nev.Core/Docs/banner-md.jpg) 
+[![NEV](Nev.Core/Docs/banner-md.jpg)](Nev.Core/Docs/banner-md.jpg)
 
 [![MIT license](Nev.Core/Docs/license-mit-blue.svg)](https://github.com/cvarley/Nev/blob/master/LICENCE.md) 
 [![Made for .NET](Nev.Core/Docs/made-for-dotnet-green.svg)](https://dotnet.microsoft.com/) 
 [![.NET](https://github.com/cvarley/Nev/actions/workflows/dotnet.yml/badge.svg)](https://github.com/cvarley/Nev/actions/workflows/dotnet.yml)
 
-Nev - [https://www.nev-ai.com](https://www.nev-ai.com) - is an open-source “semantic decision engine” for [.NET](https://dotnet.microsoft.com/) that runs on a local CPU. It was inspired by the [Jev AI model](https://en.wikipedia.org/wiki/Jev_(AI_model)). Read the [full documentation](Nev.Core/Docs/index.md) for details.
+[<< HOME](https://www.nev-ai.com)
+
+## Nev - A semantic decision engine for .NET
+
+Nev is an open-source “semantic decision engine” for .NET that runs on a local CPU. It was inspired by the [Jev AI model](https://en.wikipedia.org/wiki/Jev_(AI_model)).
+
+Read the [full documentation](Nev.Core/Docs/index.md) for details.
 
 ## Installing Nev
 
 Before you start, you'll need the [Microsoft .NET 10 or newer SDK](https://dotnet.microsoft.com/en-us/download) and [Visual Studio Code](https://code.visualstudio.com/) installed. 
 
-1. Create or select a folder
-
-1. Create a console app and install the Nev.Core package to its project directory with:
+-  Install the Nev.Core package in to your project using:
 
 ```powershell
-dotnet new console
 dotnet add package Nev.Core
 ```
+- Build the project. 
 
-Before the build completes, Nev copies the model data file to your application's output directory. If the `English` checkpoint's model data file (`Model/English/model.onnx.data`) is missing, the build downloads it. This requires network access the first time the file is needed in that output directory. 
+The first time you build your project, you'll need network access as the default model data file is downloaded to your output directory.
 
-Refreshments at the ready! The default data file is **402 MB** and so may take some time to download on a slow connection. 
-
-> *(N.B. This automatic download applies both when Nev is installed from NuGet and when building from source. Subsequent builds reuse the downloaded file. If you are having difficulty, you can [download the model data files](Nev.Core/Docs/index.md#model-files) manually.)*
+(*N.B. Please be patient. The file is **402 MB**, so it may take some time to download on a slow connection. Refreshments at the ready!*)
 
 ## Example 1 - A Yes/No Probability ("Noul") question - Sentiment Analysis
 
