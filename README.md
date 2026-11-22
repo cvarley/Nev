@@ -1,5 +1,8 @@
 # Nev - A semantic decision engine for .NET
 
+
+[![NEV](Nev.Core/Docs/banner-md.jpg)](Nev.Core/Docs/banner-md.jpg) 
+
 [![MIT license](Nev.Core/Docs/license-mit-blue.svg)](https://github.com/cvarley/Nev/blob/master/LICENCE.md) 
 [![Made for .NET](Nev.Core/Docs/made-for-dotnet-green.svg)](https://dotnet.microsoft.com/) 
 [![.NET](https://github.com/cvarley/Nev/actions/workflows/dotnet.yml/badge.svg)](https://github.com/cvarley/Nev/actions/workflows/dotnet.yml)
